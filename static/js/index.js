@@ -134,7 +134,7 @@ $(document).ready(function(){
         console.log('botão salvar foi clicado')
 
         //  entrada de dados 
-        input_data = {'data' : date , 'produto' : product , 'avaliação' : review , 'sentimento' : emotion}
+        input_data = {'date' : date , 'product' : product , 'review' : review , 'sentiment' : emotion}
 
         //  chamada ajax
         $.ajax({
