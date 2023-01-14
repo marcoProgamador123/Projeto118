@@ -7,22 +7,22 @@ $(document).ready(function(){
     let current_date = date.toDateString()
 
     //  exibir a data na página HTML usando JQUERY e JS
-    $('').text('Data: ' + current_date)
+    $('Data').text('Data: ' + current_date)
 
-    
-    let review = ""
-    let input_data = ""
-    let product = ""
-    let emotion = ""
-    let emoji_url = ""
+    let review = "revisao"
+    let input_data = "dados"
+    let product = "produto"
+    let emotion = "emocao"
+    let emoji_url = "emo"
 
     //  criando uma função para a requisição AJAX
     function ajax_request(api_url , input_data){
 
+        
         $.ajax({
 
             // tipo da requisição
-            type : '',
+            type : 'POST',
 
             // url
             url : api_url,
@@ -97,9 +97,9 @@ $(document).ready(function(){
     })
 
     //  verifique se o botão Enviar em 'camera' foi clicado e obtenha a avaliação apropriada
-    $('').click(function(){
+    $('c_button').click(function(){
 
-        review = $('').val()
+        review = $('c_textbox').val()
         input_data = {'customer_review' : review}
         ajax_request('/predict' , input_data)
 
@@ -107,9 +107,9 @@ $(document).ready(function(){
     })
 
     //  verifique se o botão Enviar em 'headphones' foi clicado e obtenha a avaliação apropriada
-    $('').click(function(){
+    $('h_button').click(function(){
 
-        review = $('').val()
+        review = $('h_textbox').val()
         input_data = {'customer_review' : review}
         ajax_request('/predict' , input_data)
 
@@ -117,9 +117,9 @@ $(document).ready(function(){
     })
 
     //  verifique se o botão Enviar em 'videogame' foi clicado e obtenha a avaliação apropriada
-    $('').click(function(){
+    $('v_button').click(function(){
 
-        review = $('').val()
+        review = $('v_textbox').val()
         input_data = {'customer_review' : review}
         ajax_request('/predict' , input_data)
 
@@ -129,7 +129,7 @@ $(document).ready(function(){
 
     //  se o botão SALVAR for clicado, dispare uma requisição POST na API
 
-    $('').click(function(){
+    $('save_button').click(function(){
 
         console.log('botão salvar foi clicado')
 
@@ -138,8 +138,8 @@ $(document).ready(function(){
 
         //  chamada ajax
         $.ajax({
-            type : '',
-            url : '',
+            type : 'POST',
+            url : 'api_url',
             data : JSON.stringify(input_data),
             dataType : 'json',
             contentType : 'application/json',
