@@ -5,20 +5,20 @@ $(document).ready(function(){
     //  obtendo a data usando o objeto Date () e convertendo-a em uma string
     let date = new Date()
     let current_date = date.toDateString()
-
+   
     //  exibir a data na página HTML usando JQUERY e JS
-    $('Data').text('Data: ' + current_date)
+    $('#date').text('Data: ' + current_date)
 
-    let review = "revisao"
-    let input_data = "dados"
-    let product = "produto"
-    let emotion = "emocao"
-    let emoji_url = "emo"
+    
+    let review = ""
+    let input_data = ""
+    let product = ""
+    let emotion = ""
+    let emoji_url = ""
 
     //  criando uma função para a requisição AJAX
     function ajax_request(api_url , input_data){
 
-        
         $.ajax({
 
             // tipo da requisição
@@ -97,9 +97,9 @@ $(document).ready(function(){
     })
 
     //  verifique se o botão Enviar em 'camera' foi clicado e obtenha a avaliação apropriada
-    $('c_button').click(function(){
+    $('#c_button').click(function(){
 
-        review = $('c_textbox').val()
+        review = $('#c_textbox').val()
         input_data = {'customer_review' : review}
         ajax_request('/predict' , input_data)
 
@@ -107,9 +107,9 @@ $(document).ready(function(){
     })
 
     //  verifique se o botão Enviar em 'headphones' foi clicado e obtenha a avaliação apropriada
-    $('h_button').click(function(){
+    $('#h_button').click(function(){
 
-        review = $('h_textbox').val()
+        review = $('#h_textbox').val()
         input_data = {'customer_review' : review}
         ajax_request('/predict' , input_data)
 
@@ -117,9 +117,9 @@ $(document).ready(function(){
     })
 
     //  verifique se o botão Enviar em 'videogame' foi clicado e obtenha a avaliação apropriada
-    $('v_button').click(function(){
+    $('#v_button').click(function(){
 
-        review = $('v_textbox').val()
+        review = $('#v_textbox').val()
         input_data = {'customer_review' : review}
         ajax_request('/predict' , input_data)
 
@@ -129,7 +129,7 @@ $(document).ready(function(){
 
     //  se o botão SALVAR for clicado, dispare uma requisição POST na API
 
-    $('save_button').click(function(){
+    $('#save_button').click(function(){
 
         console.log('botão salvar foi clicado')
 

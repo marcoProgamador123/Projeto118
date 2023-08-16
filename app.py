@@ -30,23 +30,22 @@ def predict():
 
 
 # Criando uma API para salvar a avaliação. O usuário clica no botão Salvar
-@app.route('/save-entry' , methods = ['POST'])
+@app.route('/save' , methods = ['POST'])
 def save():
 
     # extraindo data , nome do produto , avaliação e sentimento associado aos dados JSON
     date = request.json.get('dados')
     product = request.json.get('produto')
     review = request.json.get('revisao')
-    sentiment = request.json.get('emocao')
+    sentiment = request.json.get('sentimento')
 
     # criando uma variável final separada por vírgulas
     data_entry = date + "," + product + "," + review + "," + sentiment
 
     # abra o arquivo no modo 'append'
     data_entry = open("./static/assets/data_files/updated_product_dataset.csv","a")
-    data_entry.write(data_entry+"\n")
     # Registre os dados no arquivo
-
+    data_entry.write(data_entry+"\nregistrado")
     # retorne uma mensagem de sucesso
     return jsonify({'status' : 'success' , 
                     'message' : 'Dados Registrados'})
